@@ -11,18 +11,10 @@ namespace Cars.Modules
 {
     public abstract class Trans
     {
-        public string model;
-        public string number;
-        public double speed;
-        public double liftPower;
-
-        public Trans(string model, string number, double speed, double liftPower, bool b = false)
-        {
-            this.model = model;
-            this.number = number;
-            this.speed = speed;
-            this.liftPower = liftPower;
-        }
+        public string Model { get; set; }
+        public int Number { get; set; }
+        public int Speed { get; set; }
+        public double CarryingCapacity { get; set; }
 
         public abstract void Print();
     }

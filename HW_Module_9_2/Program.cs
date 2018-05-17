@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Cars.Modules;
 
-
 /*Задание 2
 1.	Создать абстрактный класс Trans с методами позволяющим вывести на экран информацию о транспортном средстве, а также определить грузоподъемность транспортного средства.
 2.	Создать производные классы: Легковая_машина (марка, номер, скорость, грузоподъемность), Мотоцикл (марка, номер, скорость, грузоподъемность, наличие коляски, при этом если коляска отсутствует, то грузоподъемность равна 0), Грузовик (марка, номер, скорость, грузоподъемность, наличие прицепа, при этом если есть прицеп, то грузоподъемность увеличивается в два раза) со своими методами вывода информации на экран, и определения грузоподъемности.
@@ -18,19 +17,14 @@ namespace HW_Module_9_2
     {
         static void Main(string[] args)
         {
-            Trans[] mas =
-            {
-                new Motorcycle("Honda", 220, "123A", 300, false),
-                new Motorcycle("Harley", 160, "345B", 360, true),
-                new PassengerCar("Toyta Yaris", 140, "799TRN02 ", 400),
-                new PassengerCar("Subaru Tribeca", 260, "722NVA05", 400),
-                new Truck("VVOLVO", 220.5, "852E", 8500, true),
-                new Truck("MAN", 330, "951F", 9000, false)
-            };
+            Generate generate = new Generate();
+            generate.GenerateMoto();
+            generate.GeneratePassengerCar();
+            generate.GenerateTruck();
 
-            for (int i = 0; i < mas.Length; i++)
-                mas[i].Print();
-            Console.ReadKey();
+            generate.PrintAll();
+
+            generate.FindTrans(100);
         }
     }
 }

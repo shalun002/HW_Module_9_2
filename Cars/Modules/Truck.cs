@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/* Грузовик (марка, номер, скорость, грузоподъемность, наличие прицепа, при этом если есть прицеп, то грузоподъемность увеличивается в два раза) */
+
 namespace Cars.Modules
 {
     /// <summary>
@@ -11,18 +13,11 @@ namespace Cars.Modules
     /// </summary>
     public class Truck : Trans
     {
-        public bool trailer;  // прицеп
+        public bool Trailer { get; set; }   // прицеп
 
-        public Truck(string m, double s, string numb, double lif_pow, bool tr)
-            : base(m, numb, s, lif_pow)
-        {
-            trailer = tr;
-            if (trailer == true)
-                liftPower *= 2;
-        }
         public override void Print()
         {
-            Console.WriteLine("Модель: {0} \nМаксимальная скорость {1} \nНомер: {2} \nГрузоподьемность: {3} \nНаличие прицепа: {4}", model, speed, number, liftPower, trailer);
+            Console.WriteLine("Грузовик: {0} \nМаксимальная скорость: {1} \nНомер: {2} \nНаличие прицепа: {3} \nГрузоподьемность: {4}", Model, Speed, Number, Trailer, CarryingCapacity);
             Console.WriteLine();
         }
     }
